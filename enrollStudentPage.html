@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Student Enrollment Form</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Enrollment"/>
+        <meta name="keywords" content="student,name,email,edit,enroll" />
+        <meta name="author" content="Priya" />
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="indexStyle.css" rel="stylesheet">
+        <style>
+                .required-validation{
+                    display:none;
+                }
+                .validation{
+                    color: red;
+                }
+
+            </style>
+    </head>
+    <body>
+            <nav class="navbar navbar-expand-lg headerDiv">
+                    <a class="navbar-brand border px-2 navTextColor" href="#">AT</a>
+                        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                                
+                     <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link navTextColor" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                 <a class="nav-link navTextColor" href="contactUs.html">Contact Us</a>
+                             </li>
+                             <li class="nav-item">
+                              <a class="nav-link navTextColor" href="#">Enroll Students</a>
+                          </li>
+            
+                        </ul>
+                      </div>
+                </nav>
+            <div class="jumbotron p-4">
+                    <h3 class="text-center">Student Enrollment Form</h3>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col p-4">
+                        <form>
+                                <div class="form-row">
+                                        <div class="form-group col-md-5">
+                                            <label for="inputFirstName" class="text-info font-weight-bold">First Name</label>
+                                            <input type="text" class="form-control" id="inputFirstName" placeholder="FirstName">
+                                            <p class="required-validation text-danger">This field is required</p>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="inputLastName" class="text-info font-weight-bold">Last Name</label>
+                                            <input type="text" class="form-control" id="inputLastName" placeholder="LastName">
+                                            <p class="required-validation text-danger">This field is required</p>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                                <label for="inputAge" class="text-info font-weight-bold">Age</label>
+                                                <input type="text" class="form-control" id="inputAge" placeholder="Age">
+                                                <p class="required-validation text-danger">This field is required</p>
+                                        </div>
+                                </div>
+                                <div class="form-row">
+                                        <div class="form-group col-md-5">
+                                            <label for="inputemail" class="text-info font-weight-bold">Email</label>
+                                            <input type="text" class="form-control" id="inputEmail" placeholder="Email address">
+                                            <p class="required-validation text-danger">This field is required</p>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="inputPhoneNumber" class="text-info font-weight-bold">PhoneNumber</label>
+                                            <input type="text" class="form-control" id="inputPhoneNumber" placeholder="PhoneNumber">
+                                            <p class="required-validation text-danger">This field is required</p>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                        <div class="col-offset-4">
+                                            <button type="button" class="btn btn-primary" id="btnAdd">Add</button>
+                                        </div>
+                                </div>
+                                    
+                        </form>
+                    </div>
+                
+                </div>
+            </div>
+            <section class="student-container container">
+                    <table class="table table-bordered" id="studentTable">
+                            <thead>
+                              <tr>
+                                <th id="sortFirstName">FirstName</th>
+                                <th id="sortLastName">LastName</th>
+                                <th id="sortAge">Age</th>
+                                <th>Email Address</th>
+                                <th>Phone</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                          </table>
+            </section>
+            <div class="container-fluid clearfix footerDiv">
+                <span class="float-left">Copyright@2019 Priya</span>
+                <span class="float-right">youremail@adress.com</span>
+            </div>
+            <div class="modal fade" id="editStudentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Student <span id="studentName"></span></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body" id_attribute="">
+                          <div class="form-row">
+                                  <div class="form-group col-md-5">
+                                      <label for="modalInputFirstName" class="text-info font-weight-bold">First Name</label>
+                                      <input type="text" class="form-control" id="modalInputFirstName" placeholder="FirstName">
+                                      <p class="required-validation text-danger" id="firstName-required">First Name is required.</p>
+                                  </div>
+                                  <div class="form-group col-md-5">
+                                      <label for="modalInputLastName" class="text-info font-weight-bold">Last Name</label>
+                                      <input type="text" class="form-control" id="modalInputLastName" placeholder="LastName">
+                                      <p class="required-validation text-danger">Last Name is required.</p>
+                                  </div>
+                                  <div class="form-group col-md-2">
+                                          <label for="modalInputAge" class="text-info font-weight-bold">Age</label>
+                                          <input type="text" class="form-control" id="modalInputAge" placeholder="Age">
+                                          <p class="required-validation text-danger">Age is required.</p>
+                                  </div>
+                          </div>
+                          <div class="form-row">
+                                  <div class="form-group col-md-5">
+                                      <label for="modalInputEmail" class="text-info font-weight-bold">Email</label>
+                                      <input type="text" class="form-control" id="modalInputEmail" placeholder="Email address">
+                                      <p class="required-validation text-danger">Email is required.</p>
+                                  </div>
+                                  <div class="form-group col-md-5">
+                                      <label for="modalInputPhoneNumber" class="text-info font-weight-bold">Phone Number</label>
+                                      <input type="text" class="form-control" id="modalInputPhoneNumber" placeholder="PhoneNumber">
+                                      <p class="required-validation text-danger">Phone Number is required.</p>
+                                      
+                                  </div>
+                          </div>			
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>
+                          <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    <script src="enrollStudent.js">
+        
+    </script>
+</html>

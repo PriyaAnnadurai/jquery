@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+            <title>Contact Us Page</title>
+            <meta name="description" content="contact"/>
+            <meta name="keywords" content="name,message,aboutus" />
+            <meta name="author" content="Priya" />
+            <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+            <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+            <script src="node_modules/jquery/dist/jquery.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+            <link href="indexStyle.css" rel="stylesheet">
+            <style>
+                .required-validation{
+                    display:none;
+                }
+                .minlength-validation
+                {
+                    display:none;
+                }
+            </style>
+     </head>
+     <body>
+        <nav class="navbar navbar-expand-lg headerDiv">
+            <a class="navbar-brand border px-2 navTextColor" href="#">AT</a>
+                <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                        
+             <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link navTextColor" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link navTextColor" href="#">Contact Us</a>
+                     </li>
+                     <li class="nav-item">
+                            <a class="nav-link navTextColor" href="enrollStudentPage.html">Enroll Students</a>
+                    </li>
+    
+                </ul>
+              </div>
+        </nav>
+        <div class="jumbotron welcomeDiv">
+            <h3 class="text-center">Contact Us</h3>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center row_style">
+                    <div class="col p-4">
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputFirstName" class="text-info font-weight-bold">First Name</label>
+                                    <input type="text" class="form-control" id="inputFirstName" placeholder="FirstName">
+                                    <p class="required-validation text-danger">FirstName is required</p>
+                                    <p class="minlength-validation text-danger">Minimum 3 characters</p>
+
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputLastName" class="text-info font-weight-bold">Last Name</label>
+                                    <input type="text" class="form-control" id="inputLastName" placeholder="LastName">
+                                    <p class="required-validation text-danger">LastName is required</p>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail" class="text-info font-weight-bold">Email Address</label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                    <p class="required-validation text-danger">Email is required</p>
+                                </div>    
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputPhoneNumber" class="text-info font-weight-bold">Phone Number</label>
+                                    <input type="tel" class="form-control" id="inputPhoneNumber" placeholder="PhoneNumber">
+                                    <p class="required-validation text-danger">PhoneNumber is required</p>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPhoneType" class="text-info font-weight-bold">Phone Type</label>
+                                    <select class="form-control">
+                                        <option value="" selected disabled>Select a Phone Type</option>
+                                        <option value="mobile">Mobile</option>
+                                        <option value="home">Home</option>
+                                        <option value="work">Work</option>
+                                    </select>
+                                    <p class="required-validation text-danger">Please Select a Phone type</p>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputSubject" class="text-info font-weight-bold">Subject</label>
+                                        <input type="text" class="form-control" id="inputSubject" placeholder="Subject">
+                                        <p class="required-validation text-danger">Subject is required</p>
+                                    </div>    
+                            </div>
+                            <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputMessage" class="text-info font-weight-bold">Message</label>
+                                        <textarea class="form-control" id="inputMessage" rows="4"></textarea>
+                                        <p class="required-validation text-danger">Message is required</p>
+                                    </div>    
+                            </div>
+                            <div class="form-group">
+                                    <div class="col-offset-4">
+                                        <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+                                    </div>
+                            </div>
+                        </form>
+                     </div>
+
+            </div>
+
+        </div>
+
+<div class="container-fluid clearfix footerDiv">
+        <span class="float-left">Copyright@2019 Priya</span>
+        <span class="float-right">youremail@adress.com</span>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+   
+    var inputFields = document.getElementsByClassName("form-control");
+    document.getElementById("btnSubmit").addEventListener("click",checkValidation);
+        function checkValidation()
+        {
+            for (index = 0; index < inputFields.length; ++index) 
+            {
+
+                var firstName=inputFields[0].value
+                var lastName=inputFields[1].value
+                var email=inputFields[2].value
+                var phoneNumber=inputFields[3].value
+                var phoneType =inputFields[4].value
+                var subject=inputFields[5].value
+                var message=inputFields[6].value
+                
+                
+                if (inputFields[index].value != "" && inputFields[index].value != undefined)
+                {
+                    inputFields[index].nextElementSibling.classList.add("required-validation");
+
+                }
+                else if(inputFields[index].value === "" || inputFields[index].value === undefined)
+                {
+                    inputFields[index].nextElementSibling.classList.remove("required-validation");
+                    
+
+                }
+
+
+        }
+    }
+    
+    </script>
+     </body>
+
+</html>
